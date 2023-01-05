@@ -3,7 +3,7 @@ import { CssBaseline, ThemeProvider } from '@mui/material'
 import { Provider } from 'react-redux'
 import { store } from 'setup/redux/store'
 import { theme } from 'setup/theme'
-import { Home } from 'scenes/pages/home/home'
+import { Cart } from 'scenes/pages/cart/cart'
 
 export const App = () => {
   return (
@@ -11,7 +11,7 @@ export const App = () => {
       <Provider store={store}>
         <ThemeProvider theme={theme}>
           <CssBaseline />
-          <Home />
+          <Cart />
         </ThemeProvider>
       </Provider>
     </Fragment>
