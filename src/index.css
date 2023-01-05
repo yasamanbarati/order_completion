@@ -1,0 +1,25 @@
+@font-face{
+  font-family: BYekan;
+  font-style: normal;
+  font-weight: 700;
+  src: url('./setup/assets/font/B\ Yekan.eot');
+  src: url('./setup/assets/font/B\ Yekan.eot') format('mbedded-opentype'),
+       url('./setup/assets/font/B\ Yekan.woff') format('woff'),
+       url('./setup/assets/font/B\ Yekan.ttf') format('truetype');
+}
+@font-face{
+  font-family: BYekan;
+  font-style: normal;
+  font-weight: 400;
+  src: url('./setup/assets/font/B\ Yekan.eot');
+  src: url('./setup/assets/font/B\ Yekan.eot') format('mbedded-opentype'),
+       url('./setup/assets/font/B\ Yekan.woff') format('woff'),
+       url('./setup/assets/font/B\ Yekan.ttf') format('truetype');
+}
+body {
+  direction: rtl;
+}
+*{
+  font-family: "BYekan"!important;
+}
+
