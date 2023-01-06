@@ -13,6 +13,10 @@ export const theme = createTheme({
       sm: 576,
       tabletM: 667,
       tabletL: 768,
+      md: 930,
+      laptop: 1100,
+      lg: 1200,
+      xl: 1440,
     },
   },
 })
@@ -25,5 +29,9 @@ declare module '@mui/material/styles' {
     sm: true;
     tabletM: true;
     tabletL: true;
+    md: true;
+    laptop: true;
+    lg: true;
+    xl: true;
   }
 }
