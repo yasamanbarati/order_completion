@@ -1,6 +1,6 @@
 import { Card, CardActions } from "@mui/material"
 import { CustomPaymentCardInformation } from "./custom_payment_card_information/custom_payment_card_information"
-import ContentButton from "components/button/content_button/content_button"
+import { ContentButton } from "components/button/content_button/content_button"
 
 
 const ContentButtonStyle = {
@@ -44,7 +44,8 @@ export const CustomPaymentCard = () => {
                     Text="پرداخت نهایی"
                     Price={174000}
                     variant="contained"
-                    sxStyle={{ ContentButtonStyle }} />
+                    sxStyle={{ ContentButtonStyle }}
+                    Mode={true} />
             </CardActions>
         </Card>
     )

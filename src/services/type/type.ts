@@ -8,6 +8,7 @@ export interface ButtonProps {
   onClickEvent?: () => unknown
   sxStyle: SxProps
   icon?: JSX.Element
+  Mode: boolean
 }
 export interface TypographyProps {
   variant?: 'h1' | 'h2' | 'h3' | 'body1'
