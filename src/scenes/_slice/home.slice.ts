@@ -1,8 +1,8 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
-import { AddresssType, PaymentMethodType } from './type'
+import { AddressType, PaymentMethodType } from './type'
 
 interface ReduxBodyType {
-  optionList: AddresssType[]
+  optionList: AddressType[]
   selectedOption: string
   PaymentMethod: PaymentMethodType[]
 }
@@ -15,7 +15,7 @@ const initialState: ReduxBodyType = {
 
 const setOptionList = (
   state: ReduxBodyType,
-  action: PayloadAction<AddresssType[]>,
+  action: PayloadAction<AddressType[]>,
 ) => {
   state.optionList = action.payload
 }

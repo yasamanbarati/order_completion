@@ -4,7 +4,7 @@ export interface PaymentMethodType {
   name: string
   icon: (props: SVGAttributes<SVGElement>) => JSX.Element
 }
-export interface AddresssType {
+export interface AddressType {
   id: string
   text: string
   address: string

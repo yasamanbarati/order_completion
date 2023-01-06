@@ -1,7 +1,7 @@
 import { Box } from "@mui/material"
 import { BoxTitle } from "components/box/box_title/box_title"
 import { ArrowBackIosNew } from "@mui/icons-material"
-import { AddresssBoxOption } from "./addresss_box_option/addresss_box_option"
+import { AddressBoxOption } from "./addresss_box_option/addresss_box_option"
 
 export const AddresssBox = () => {
     return (
@@ -12,7 +12,7 @@ export const AddresssBox = () => {
                     height: "18px",
                 }} color="warning" />
             </BoxTitle>
-            {/* <AddresssBoxOption /> */}
+            <AddressBoxOption />
         </Box>
     )
 }

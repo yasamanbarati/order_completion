@@ -9,6 +9,9 @@ export interface ButtonProps {
   sxStyle: SxProps
   icon?: JSX.Element
   Mode: boolean
+  isfinished?: boolean
+  loading?: boolean
+  disabled?: boolean
 }
 export interface TypographyProps {
   variant?: 'h1' | 'h2' | 'h3' | 'body1'

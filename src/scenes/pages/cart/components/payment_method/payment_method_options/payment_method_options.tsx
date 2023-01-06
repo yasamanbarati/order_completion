@@ -5,20 +5,20 @@ import { ContentButton } from "components/button/content_button/content_button"
 const GridOptions = styled(Grid)(({ theme }) => ({
     justifyContent: "space-between",
     alignItems: "center",
-    margin: "10px 0"
+    margin: "20px 0 30px 0",
 }))
 const ContentButtonStyle = {
     flexDirection: "column",
     height: "84px",
     width: "100%",
     background: "linear-gradient(293.8deg, #EDEEF2 0%, #F2F3F6 118.73%)",
-    boxShadow: "-3px -3px 20px #FFFFFF",
+    boxShadow: "2px 2px 14px rgba(36, 65, 93, 0.33)",
     border: "1px solid transparent",
-    webkitTransition: "all 0.4s cubic-bezier(.5, .24, 0, 1)",
-    transition: "all 0.4s cubic-bezier(.5, .24, 0, 1)",
-    borderRadius: " 10px",
+    transition: "0.8s cubic-bezier(0.2, 0.19, 0.74, 0.75)",
+    borderRadius: "10px",
     "& .css-1d6wzja-MuiButton-startIcon": {
-        margin: "10px 0"
+        margin: "10px 0",
+        transition: "0.8s cubic-bezier(0.2, 0.19, 0.74, 0.75)",
     },
     "& h3": {
         fontWeight: "400",
@@ -26,54 +26,23 @@ const ContentButtonStyle = {
         lineHeight: "14px",
         textAlign: "center",
         color: "#000",
-        marginBottom: "15px"
-    },
-    "&::before": {
-        content: `""`,
-        position: "absolute",
-        left: "0px",
-        bottom: "0px",
-        zIndex: "2",
-        width: "0%",
-        height: "2px",
-        background: "rgba(255, 92, 1, 1)",
-        boxShadow: "inset 0px 0px 0px rgba(255, 92, 1, 1)",
-        display: "block",
-        webkitTransition: "all 0.8s cubic-bezier(.5, .24, 0, 1)",
-        transition: "all 0.8s cubic-bezier(.5, .24, 0, 1)",
-        borderRadius: "10%",
-    },
-    "&:hover::before": {
-        width: "98% ",
-    },
-
-    "&::after": {
-        content: `''`,
-        position: "absolute",
-        right: "0px",
-        top: "0px",
-        zIndex: "2",
-        width: "0%",
-        height: "2px",
-        background: "rgba(255, 92, 1, 1)",
-        webkitTransition: "all 0.8s cubic-bezier(.5, .24, 0, 1)",
-        transition: "all 0.8s cubic-bezier(.5, .24, 0, 1)",
-        borderRadius: "10%",
-    },
-    "&:hover::after": {
-        width: "98%",
+        marginBottom: "15px",
+        transition: "0.8s cubic-bezier(0.2, 0.19, 0.74, 0.75)",
     },
     "&:hover": {
-        border: "1px solid transparent",
-        borderRight: "2px solid rgba(255, 92, 1, 1)",
-        borderLeft: "2px solid rgba(255, 92, 1, 1)",
-        webkitTransition: "all 0.8s cubic-bezier(.5, .24, 0, 1)",
-        transition: "all 0.8s cubic-bezier(.5, .24, 0, 1)",
+        border: "2px solid rgba(255, 92, 1, 1)",
+        transition: "0.8s cubic-bezier(0.2, 0.19, 0.74, 0.75)",
         "& svg path": {
             stroke: "rgba(255, 92, 1, 1)",
+            transition: "0.8s cubic-bezier(0.2, 0.19, 0.74, 0.75)",
+        },
+        "& svg circle": {
+            fill: "rgba(255, 92, 1, 1)",
+            transition: "0.8s cubic-bezier(0.2, 0.19, 0.74, 0.75)",
         },
         "& h3": {
             color: "rgba(255, 92, 1, 1)",
+            transition: "0.8s cubic-bezier(0.2, 0.19, 0.74, 0.75)",
         },
     },
 }

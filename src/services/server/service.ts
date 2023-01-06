@@ -3,10 +3,10 @@ import {
   setPaymentMethodAction,
 } from 'scenes/_slice/home.slice'
 import { dispatch } from 'setup/redux/store'
-import { addresss, payment_method } from './mock'
+import { address, payment_method } from './mock'
 
 export const getHomePageData = () => {
-  dispatch(setOptionListAction(addresss))
+  dispatch(setOptionListAction(address))
   dispatch(setPaymentMethodAction(payment_method))
 }
 export const initializeAppData = () => {

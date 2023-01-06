@@ -12,7 +12,7 @@ const HeaderBox = styled(Box)(({ theme }) => ({
     display: "flex",
     justifyContent: "space-between",
     alignItems: "center",
-    padding: "35px 25px",
+    padding: "35px 25px 0 25px",
     "& h1": {
         fontWeight: "700",
         fontSize: "20px",

@@ -2,20 +2,7 @@ import { Box, CardContent } from "@mui/material"
 import { CustomTypography } from "components/custom/custom_typography/custom_typography"
 import { CardInformationProps } from "services/type/type"
 
-const TitleStyle = {
-    fonWeight: "400",
-    fontSize: "14px",
-    lineHeight: "150%",
-    textAlign: "right",
-    color: "#2C3036"
-}
-const NumericTextStyle = {
-    fonWeight: "400",
-    fontSize: "14px",
-    lineHeight: "150%",
-    color: "#2C3036"
 
-}
 export const CustomPaymentCardInformation = ({ text, NumericText, TitleStyle, NumericTextStyle, PaymentMode, TotalMode, TotalNumber }: CardInformationProps) => {
     return (
         <CardContent
@@ -27,21 +14,25 @@ export const CustomPaymentCardInformation = ({ text, NumericText, TitleStyle, Nu
         >
             {
                 PaymentMode === false ?
-                    (<Box sx={{borderBottom: "0.3px solid #575F6B", marginBottom:"15px"}}>
-                        <CustomTypography text={text} variant="h2" textStyle={{ ...TitleStyle }} />
-                        <CustomTypography text={NumericText?.toLocaleString("fa-IR")} variant="body1" textStyle={{ ...NumericTextStyle }} />
+                    (<Box sx={{
+                        width: "100%", display: 'flex', justifyContent: 'space-between', alignItems: "center", borderBottom: "0.3px solid #575f6b59", paddingBottom: "15px", "& h2": {
+                            color: "#FF5C01"
+                        }
+                    }}>
+                        <CustomTypography text={text} variant="h2" textStyle={TitleStyle} />
+                        <CustomTypography text={NumericText?.toLocaleString("fa-IR")} variant="body1" textStyle={NumericTextStyle} />
                     </Box>)
                     :
-                    (<Box sx={{marginBottom:"10px"}}>
+                    (<Box sx={{ width: "100%", display: 'flex', justifyContent: 'space-between', alignItems: "center", marginBottom: "10px" }}>
                         <div style={{
                             display: "flex",
                             justifyContent: 'start',
                             alignItems: 'center',
                         }}>
-                            <CustomTypography text={text} variant="h2" textStyle={{ ...TitleStyle }} />
-                            {TotalMode === true && <CustomTypography text={"( " + TotalNumber?.toLocaleString("fa-IR") + " )"} variant="h2" textStyle={{ ...TitleStyle }} />}
+                            <CustomTypography text={text} variant="h2" textStyle={TitleStyle} />
+                            {TotalMode === true && <CustomTypography text={"( " + TotalNumber?.toLocaleString("fa-IR") + " )"} variant="h2" textStyle={TitleStyle} />}
                         </div>
-                        <CustomTypography text={NumericText?.toLocaleString("fa-IR") + "تومان"} variant="body1" textStyle={{ ...NumericTextStyle }} />
+                        <CustomTypography text={NumericText?.toLocaleString("fa-IR") + "تومان"} variant="body1" textStyle={NumericTextStyle} />
                     </Box>)
             }
         </CardContent>
