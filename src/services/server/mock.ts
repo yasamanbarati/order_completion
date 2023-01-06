@@ -1,9 +1,9 @@
 import { WalletIcon } from 'components/icons/wallet_icon'
 import { BankingPortalIcon } from 'components/icons/banking_portal_icon'
 import { CashIcon } from 'components/icons/cash_icon'
-import { AddresssType, PaymentMethodType } from 'scenes/_slice/type'
+import { AddressType, PaymentMethodType } from 'scenes/_slice/type'
 
-export const addresss: AddresssType[] = [
+export const address: AddressType[] = [
   {
     id: '1',
     text: 'دفتر',
@@ -11,7 +11,7 @@ export const addresss: AddresssType[] = [
     mapId: 'a',
   },
   {
-    id: '1',
+    id: '2',
     text: 'دریافت حضوری',
     address: 'بلوار کشاورز، نبش 16 آذر واحد پیتزا سیب کارگر شمالی',
     mapId: 'b',

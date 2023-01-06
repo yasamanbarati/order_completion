@@ -1,64 +1,87 @@
-import { Box, FormControlLabel, Radio, styled } from "@mui/material"
-import { CustomTypography } from "components/custom/custom_typography/custom_typography"
-import { useState } from "react"
-import { OptionCardProps } from "services/type/type"
-import { useAppSelector } from "setup/redux/react-hooks"
+import { Box, FormControlLabel, Radio, styled } from '@mui/material'
+import { CustomTypography } from 'components/custom/custom_typography/custom_typography'
+import { useState } from 'react'
+import { setSelectedOptionAction } from 'scenes/_slice/home.slice'
+import { OptionCardProps } from 'services/type/type'
+import { useAppDispatch, useAppSelector } from 'setup/redux/react-hooks'
 
 const StyleFormControlLabel = styled(FormControlLabel)({
+    width: '100%',
     display: 'flex',
-    justifyContent: 'space-between',
     alignItems: 'center',
-    padding: "0 15px",
-    minHeight: "60px",
-    background: "linear-gradient(275.18deg, #F2F3F6 0%, #E5E6EC 146.05%)",
-    boxShadow: "-3px -3px 20px #FFFFFF",
-    borderRadius: "10px",
+    padding: '4px 15px',
+    minHeight: '60px',
+    background: "linear-gradient(293.8deg, #EDEEF2 0%, #F2F3F6 118.73%)",
+    boxShadow: "2px 2px 14px rgba(36, 65, 93, 0.33)",
+    borderRadius: '10px',
+    marginRight: '0',
+    margin: '8px 0',
+    '& .MuiTypography-root': {
+        width: '100%',
+    },
 })
-const RadioElement = styled(Radio)({
 
-})
 const TitleStyle = {
-    fonWeight: "700",
-    fontSize: "16px",
-    lineHeight: "150%",
-    color: "#000",
-    marginRight: "14px"
+    fonWeight: '700',
+    fontSize: '16px',
+    lineHeight: '150%',
+    color: '#000',
+    marginRight: '14px',
+    marginLeft: '10px',
+    width: '100%',
 }
 
 const TextStyle = {
-    fonWeight: "400",
-    fontSize: "14px",
-    lineHeight: "150%",
-    color: "#575F6B",
+    width: '100%',
+    textAlign: 'left',
+    fonWeight: '400',
+    fontSize: '14px',
+    lineHeight: '150%',
+    color: '#575F6B',
+    // reading
+    overflow: 'hidden',
     textOverflow: 'ellipsis',
-    overflow: "hidden",
-    whiteSpace: "nowrap"
+    whiteSpace: 'normal',
+    WebkitLineClamp: 1,
+    display: '-webkit-box',
+    WebkitBoxOrient: 'vertical',
 }
-export const CustomOptionCard = ({ text, address, mapId, id }: OptionCardProps) => {
-    const [value, setValue] = useState();
-    const selectedOption = useAppSelector(state => state.home.selectedOption)
 
-    // const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    //   setValue((event.target as HTMLInputElement).value);
-    // };
+interface Props {
+    option: OptionCardProps
+}
+
+export const CustomOptionCard = ({ option }: Props) => {
+    const selectedOption = useAppSelector(state => state.home.selectedOption)
+    const dispatch = useAppDispatch()
+
+    const handleChange = (value: string) => {
+        dispatch(setSelectedOptionAction(value))
+    }
+
     return (
         <StyleFormControlLabel
             control={
                 <Box>
-                    <RadioElement
-                        checked={id === selectedOption}
-                        value={id}
+                    <Radio
+                        sx={{
+                            color: "rgba(88, 108, 138, 0.5)!important",
+                            '&.Mui-checked': {
+                                color: "rgba(88, 108, 138, 0.5)!important",
+                            }
+                        }}
+                        checked={option.id === selectedOption}
+                        value={option.id}
+                        onClick={handleChange.bind(null, option.id)}
                     />
                 </Box>
-            } label={
-                <Box>
-                    <Box>
-                        <CustomTypography text={text} variant="h2" textStyle={TitleStyle} />
-                    </Box>
-                    <Box>
-                        <CustomTypography text={address} variant="body1" textStyle={TextStyle} />
-                    </Box>
+            }
+            label={
+                <Box display="flex" alignItems="center" justifyContent="space-between">
+                    <CustomTypography text={option.text} textStyle={TitleStyle} />
+                    <CustomTypography text={option.address} textStyle={TextStyle} />
                 </Box>
-            } />
+            }
+        />
     )
 }

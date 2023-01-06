@@ -8,6 +8,10 @@ export interface ButtonProps {
   onClickEvent?: () => unknown
   sxStyle: SxProps
   icon?: JSX.Element
+  Mode: boolean
+  isfinished?: boolean
+  loading?: boolean
+  disabled?: boolean
 }
 export interface TypographyProps {
   variant?: 'h1' | 'h2' | 'h3' | 'body1'
@@ -33,8 +37,8 @@ export interface BoxTitleProps {
   titleStyle?: SxProps
   textStyle?: SxProps
   title: string | undefined
-  text: string | undefined
-  children: ReactNode
+  text?: string | undefined
+  children?: ReactNode
   Mode: boolean
 }
 export interface OptionCardProps {

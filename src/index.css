@@ -18,8 +18,9 @@
 }
 body {
   direction: rtl;
+  min-height: 100vh;
+  background: linear-gradient(167.51deg, #F8F8FC -23.83%, #E1E2E8 81.74%);
 }
 *{
   font-family: "BYekan"!important;
 }
-

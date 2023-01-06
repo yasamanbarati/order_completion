@@ -6,7 +6,7 @@ export const CustomTypography = ({ variant,
     textStyle,
     text }: TypographyProps) => {
     return (
-        <Fragment>
+        <>
             <Typography
                 variant={variant}
                 sx={{
@@ -15,6 +15,6 @@ export const CustomTypography = ({ variant,
             >
                 {text}
             </Typography>
-        </Fragment>
+        </>
     )
 }
