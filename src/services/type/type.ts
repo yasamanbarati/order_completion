@@ -33,8 +33,8 @@ export interface BoxTitleProps {
   titleStyle?: SxProps
   textStyle?: SxProps
   title: string | undefined
-  text: string | undefined
-  children: ReactNode
+  text?: string | undefined
+  children?: ReactNode
   Mode: boolean
 }
 export interface OptionCardProps {
