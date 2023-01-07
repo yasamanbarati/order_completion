@@ -8,5 +8,5 @@ export interface AddressType {
   id: string
   text: string
   address: string
-  mapId?: string
+  mapId?: number[] | any
 }

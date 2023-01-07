@@ -8,13 +8,13 @@ export const address: AddressType[] = [
     id: '1',
     text: 'دفتر',
     address: 'بلوار کشاورز، نبش 16 آذر واحد 209',
-    mapId: 'a',
+    mapId: [35.70869, 51.395353],
   },
   {
     id: '2',
     text: 'دریافت حضوری',
     address: 'بلوار کشاورز، نبش 16 آذر واحد پیتزا سیب کارگر شمالی',
-    mapId: 'b',
+    mapId: [35.70659035471072, 51.39255275521295],
   },
 ]
 export const payment_method: PaymentMethodType[] = [
