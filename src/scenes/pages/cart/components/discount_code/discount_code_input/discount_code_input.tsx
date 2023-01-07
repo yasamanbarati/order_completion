@@ -1,6 +1,8 @@
 import { Box, InputBase, Paper, styled } from "@mui/material"
 import { ContentButton } from "components/button/content_button/content_button"
 import { useEffect, useRef, useState } from "react"
+import { setDiscountCodeAction } from "scenes/_slice/home.slice"
+import { dispatch } from "setup/redux/store"
 
 const PaperForm = styled(Paper)(({ theme }) => ({
     display: 'flex',
@@ -37,14 +39,15 @@ const ContentButtonStyle = {
     },
     "& h3": {
         fontWeight: "400",
-        fontSize: "20px",
-        lineHeight: "20px",
+        fontSize: "18px",
+        lineHeight: "18px",
         textAlign: "center"
     }
 }
 
 export const DiscountCodeInput = () => {
 
+    const [inputValue, setInputValue] = useState("")
     const [loading, setLoading] = useState(false)
     const [isfinished, setIsfinished] = useState(false)
 
@@ -59,16 +62,22 @@ export const DiscountCodeInput = () => {
         if (!loading) {
             setIsfinished(false);
             setLoading(true);
+            dispatch(setDiscountCodeAction(inputValue))
             timer.current = window.setTimeout(() => {
+                setInputValue("")
                 setIsfinished(true);
                 setLoading(false);
             }, 2000);
         }
     }
 
+    const handleOnChange = (e: any) => setInputValue(e.target.value)
+
     return (
         <PaperForm>
             <InputBase
+                value={inputValue}
+                onChange={handleOnChange}
                 placeholder="کد تخفیف خود را وارد نمایید."
                 inputProps={{ 'aria-label': 'کد تخفیف خود را وارد نمایید.' }}
             />

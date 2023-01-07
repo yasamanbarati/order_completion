@@ -1,23 +1,50 @@
-import { Button, CircularProgress } from "@mui/material"
-import { CustomTypography } from "components/custom/custom_typography/custom_typography"
-import { ButtonProps } from "services/type/type"
+import { Button, CircularProgress } from '@mui/material'
+import { CustomTypography } from 'components/custom/custom_typography/custom_typography'
+import { useState } from 'react'
+import { ButtonProps } from 'services/type/type'
 
-export const ContentButton = ({ onClickEvent, sxStyle, icon, Text, variant, Price, Mode, disabled, isfinished, loading }: ButtonProps) => {
+export const ContentButton = ({
+  onClickEvent,
+  sxStyle,
+  icon,
+  Text,
+  variant,
+  Price,
+  Mode,
+  disabled,
+  isLoading,
+}: ButtonProps) => {
+  const [loading, setLoading] = useState(false)
+  const [finished, setFinished] = useState(false)
 
+  const handleOnClick = async () => {
+    if (isLoading || loading) return
+
+    setLoading(true)
+
+    if (onClickEvent) onClickEvent()
+
+    setTimeout(() => {
+      setLoading(false)
+      setFinished(true)
+    }, 2000)
+  }
 
   return (
     <Button
       variant={variant}
       disabled={loading}
-      onClick={onClickEvent}
+      onClick={handleOnClick}
       sx={{ ...sxStyle }}
-      startIcon={icon}>
-      <CustomTypography text={Text} variant="h3" />
-      {loading && (
+      startIcon={icon}
+    >
+      {finished ? (
+        <CustomTypography text={`${Text} شد`} variant="h3" />
+      ) : loading ? (
         <CircularProgress
           size={24}
           sx={{
-            color: "green[500]",
+            color: '#fff',
             position: 'absolute',
             top: '50%',
             left: '50%',
@@ -25,19 +52,12 @@ export const ContentButton = ({ onClickEvent, sxStyle, icon, Text, variant, Pric
             marginLeft: '-12px',
           }}
         />
+      ) : (
+        <>
+          <CustomTypography text={Text} variant="h3" />
+          {Mode === true && "(تومان " + Price?.toLocaleString("fa-IR") + " )"}
+        </>
       )}
-      {/* {isfinished === false ?
-        <>
-          {loading === false ? <CustomTypography text={Text} variant="h3" /> : <CircularProgress disableShrink />}
-        </>
-        :
-        <>
-          <CustomTypography text={Text+"شد"} variant="h3" />
-        </>
-      }
-      {Mode === true &&
-        "(تومان " + Price?.toLocaleString("fa-IR") + " )"
-      } */}
     </Button>
   )
 }

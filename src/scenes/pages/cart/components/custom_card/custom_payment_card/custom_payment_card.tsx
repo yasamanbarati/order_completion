@@ -1,4 +1,4 @@
-import { Box, Card, CardActions, CardContent } from "@mui/material"
+import { Card, CardActions, CardContent } from "@mui/material"
 import { CustomPaymentCardInformation } from "./custom_payment_card_information/custom_payment_card_information"
 import { ContentButton } from "components/button/content_button/content_button"
 import { CustomTypography } from "components/custom/custom_typography/custom_typography"
@@ -27,12 +27,6 @@ const ContentButtonStyle = {
     },
     "&:hover": {
         background: "linear-gradient(309.34deg, #FF5C01 -13.68%, rgba(255, 92, 1, 0.7) 171.92%)",
-        // background: "#fff",
-        // boxShadow: " 0px 4px 10px 1px rgb(255 92 1 / 36%), 0px 0px 12px rgb(36 65 93 / 33%)",
-        // color: "#FF5C01",
-        // "& h3": {
-        //     color: "#FF5C01",
-        // },
     }
 }
 const TitleStyle = {
