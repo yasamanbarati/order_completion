@@ -1,6 +1,6 @@
 import { Box, InputBase, Paper, styled } from "@mui/material"
 import { ContentButton } from "components/button/content_button/content_button"
-import { useState } from "react"
+import { useEffect, useRef, useState } from "react"
 
 const PaperForm = styled(Paper)(({ theme }) => ({
     display: 'flex',
@@ -19,6 +19,10 @@ const PaperForm = styled(Paper)(({ theme }) => ({
         textAlign: "right",
         width: "75%",
     },
+    transition: "0.8s ease",
+    "&:hover": {
+        boxShadow: "0px 4px 10px 1px rgb(255 92 1 / 36%), 0px 0px 12px rgb(36 65 93 / 33%)",
+    }
 }))
 
 const ContentButtonStyle = {
@@ -44,14 +48,22 @@ export const DiscountCodeInput = () => {
     const [loading, setLoading] = useState(false)
     const [isfinished, setIsfinished] = useState(false)
 
-    const handleOnClick = async () => {
-        if (loading) return
-        setLoading(true)
-        setIsfinished(false)
-        setTimeout(() => {
-            setLoading(false)
-            setIsfinished(true)
-        }, 3000);
+    const timer = useRef<number>();
+    useEffect(() => {
+        return () => {
+            clearTimeout(timer.current);
+        };
+    }, []);
+
+    const handleOnClick = () => {
+        if (!loading) {
+            setIsfinished(false);
+            setLoading(true);
+            timer.current = window.setTimeout(() => {
+                setIsfinished(true);
+                setLoading(false);
+            }, 2000);
+        }
     }
 
     return (
@@ -61,8 +73,9 @@ export const DiscountCodeInput = () => {
                 inputProps={{ 'aria-label': 'کد تخفیف خود را وارد نمایید.' }}
             />
             <ContentButton
-                disabled={loading ? true : false}
                 onClickEvent={handleOnClick}
+                isfinished={false}
+                loading={false}
                 Mode={false}
                 Text="ثبت"
                 variant="contained"

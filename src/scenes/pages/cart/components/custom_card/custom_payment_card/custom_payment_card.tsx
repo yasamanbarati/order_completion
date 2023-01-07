@@ -1,6 +1,7 @@
-import { Card, CardActions } from "@mui/material"
+import { Box, Card, CardActions, CardContent } from "@mui/material"
 import { CustomPaymentCardInformation } from "./custom_payment_card_information/custom_payment_card_information"
 import { ContentButton } from "components/button/content_button/content_button"
+import { CustomTypography } from "components/custom/custom_typography/custom_typography"
 
 
 const ContentButtonStyle = {
@@ -15,12 +16,23 @@ const ContentButtonStyle = {
     fontWeight: "700",
     fontSize: "20px",
     lineHeight: "28px",
+    transition: "0.8s ease",
     "& h3": {
         fontWeight: "700",
         fontSize: "20px",
         lineHeight: "28px",
         textAlign: "center",
         color: "#FFFFFF",
+        transition: "0.8s ease",
+    },
+    "&:hover": {
+        background: "linear-gradient(309.34deg, #FF5C01 -13.68%, rgba(255, 92, 1, 0.7) 171.92%)",
+        // background: "#fff",
+        // boxShadow: " 0px 4px 10px 1px rgb(255 92 1 / 36%), 0px 0px 12px rgb(36 65 93 / 33%)",
+        // color: "#FF5C01",
+        // "& h3": {
+        //     color: "#FF5C01",
+        // },
     }
 }
 const TitleStyle = {
@@ -52,7 +64,7 @@ export const CustomPaymentCard = () => {
                 PaymentMode={true}
                 TotalMode={true}
                 text="مجموع"
-                NumericText={162500}
+                NumericText={162500 + " تومان "}
                 TitleStyle={TitleStyle}
                 NumericTextStyle={NumericTextStyle}
                 TotalNumber={1} />
@@ -63,15 +75,40 @@ export const CustomPaymentCard = () => {
                 TitleStyle={TitleStyle}
                 NumericTextStyle={NumericTextStyle}
                 text="جمع سفارش پس از تخفیف"
-                NumericText={162500} />
+                NumericText={162500 + " تومان "} />
+
+            <CustomPaymentCardInformation
+                PaymentMode={true}
+                TotalMode={false}
+                TitleStyle={TitleStyle}
+                NumericTextStyle={NumericTextStyle}
+                text="هزینه ارسال"
+                NumericText="رایگان" />
+
             <CardActions>
                 <ContentButton
                     Text="پرداخت نهایی"
-                    Price={174000}
+                    Price={174000 + " تومان "}
                     variant="contained"
                     sxStyle={ContentButtonStyle}
-                    Mode={true} />
+                    Mode={true}
+                    isfinished={false}
+                    loading={false}
+                />
             </CardActions>
+
+            <CardContent
+                sx={{
+                    display: 'flex',
+                    justifyContent: "start",
+                    alignItems: 'center',
+                    paddingTop:"5px",
+                    paddingBottom:"0px!important",
+                }}
+            >
+                <CustomTypography text=" جمع کل پرداختی : " variant="h2" textStyle={TitleStyle} />
+                <CustomTypography text={174000?.toLocaleString("fa-IR") + " تومان "} variant="body1" textStyle={NumericTextStyle} />
+            </CardContent >
         </Card>
     )
 }
