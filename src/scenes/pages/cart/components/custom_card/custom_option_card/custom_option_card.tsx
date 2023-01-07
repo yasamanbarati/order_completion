@@ -17,6 +17,7 @@ const StyleFormControlLabel = styled(FormControlLabel)({
     borderRadius: '10px',
     marginRight: '0',
     margin: '8px 0',
+    transition: "0.8s ease",
     '& .MuiTypography-root': {
         width: '100%',
     },
@@ -47,6 +48,46 @@ const TextStyle = {
     WebkitBoxOrient: 'vertical',
 }
 
+const BpIcon = styled('span')(({ theme }) => ({
+    borderRadius: '50%',
+    width: 25,
+    height: 25,
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    background: "linear-gradient(310.59deg, #F2F3F6 3.8%, #E5E6EC 119.99%)",
+    boxShadow: "inset 0px 2px 5px 2px rgb(193 196 200 / 50%)",
+    '.Mui-focusVisible &': {
+        outline: '2px auto #fff',
+        outlineOffset: 2,
+    },
+    'input:hover ~ &': {
+        backgroundColor: theme.palette.mode === 'dark' ? '#30404d' : '#ebf1f5',
+    },
+    'input:disabled ~ &': {
+        boxShadow: 'none',
+        background:
+            theme.palette.mode === 'dark' ? 'rgba(57,75,89,.5)' : 'rgba(206,217,224,.5)',
+    },
+}));
+
+const BpCheckedIcon = styled(BpIcon)({
+    backgroundColor: '#fff',
+    backgroundImage: 'linear-gradient(180deg,hsla(0,0%,100%,.1),hsla(0,0%,100%,0))',
+    '&:before': {
+        display: 'block',
+        width: 10,
+        height: 10,
+        borderRadius: "50%",
+        backgroundImage: 'linear-gradient(324.02deg, #575F6B 45.04%, #2C3036 89.27%)',
+        content: '""',
+    },
+    'input:hover ~ &': {
+        background: "linear-gradient(310.59deg, #F2F3F6 3.8%, #E5E6EC 119.99%)",
+        boxShadow: "inset 0px 2px 5px 2px rgb(193 196 200 / 50%)",
+    },
+});
+
 interface Props {
     option: OptionCardProps
 }
@@ -66,13 +107,13 @@ export const CustomOptionCard = ({ option }: Props) => {
                     <Radio
                         sx={{
                             padding: "4px 15px 4px 0",
-                            color: "rgba(88, 108, 138, 0.5)!important",
                             position: "absolute",
                             bottom: "13px",
-                            '&.Mui-checked': {
-                                color: "rgba(88, 108, 138, 0.5)!important",
-                            }
                         }}
+                        disableRipple
+                        color="default"
+                        checkedIcon={<BpCheckedIcon />}
+                        icon={<BpIcon />}
                         checked={option.id === selectedOption}
                         value={option.id}
                         onClick={handleChange.bind(null, option.id)}
