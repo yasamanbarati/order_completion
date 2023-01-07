@@ -5,7 +5,6 @@ import { CustomOptionCard } from '../../custom_card/custom_option_card/custom_op
 
 export const AddressBoxOption = () => {
     const options = useAppSelector(state => state.home.optionList)
-    console.log(options)
 
     return (
         <FormControl sx={{

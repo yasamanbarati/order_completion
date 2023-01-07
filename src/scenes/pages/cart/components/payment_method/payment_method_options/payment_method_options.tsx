@@ -52,15 +52,19 @@ export const PaymentMethodOptions = () => {
 
     return (
         <GridOptions container spacing={1}>
-            {PaymentMethodList.map((Pitem) => {
-                return <Grid item xs={4}>
-                    <ContentButton
-                        Text={Pitem.name}
-                        icon={<Pitem.icon />}
-                        variant="outlined"
-                        sxStyle={ContentButtonStyle}
-                        Mode={false} />
-                </Grid>
+            {PaymentMethodList.map(Pitem => {
+                return (
+                    <Grid item xs={4}>
+                        <ContentButton
+                            Text={Pitem.name}
+                            icon={<Pitem.icon />}
+                            variant="outlined"
+                            sxStyle={ContentButtonStyle}
+                            Mode={false}
+                            isLoading
+                        />
+                    </Grid>
+                )
             })}
         </GridOptions>
     )
