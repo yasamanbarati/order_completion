@@ -4,11 +4,12 @@ import { CardInformationProps } from "services/type/type"
 
 
 export const CustomPaymentCardInformation = ({ text, NumericText, TitleStyle, NumericTextStyle, PaymentMode, TotalMode, TotalNumber }: CardInformationProps) => {
+
     return (
         <CardContent
             sx={{
                 display: 'flex',
-                justifyContent: 'space-between',
+                justifyContent: "space-between",
                 alignItems: 'center',
             }}
         >
@@ -32,9 +33,9 @@ export const CustomPaymentCardInformation = ({ text, NumericText, TitleStyle, Nu
                             <CustomTypography text={text} variant="h2" textStyle={TitleStyle} />
                             {TotalMode === true && <CustomTypography text={"( " + TotalNumber?.toLocaleString("fa-IR") + " )"} variant="h2" textStyle={TitleStyle} />}
                         </div>
-                        <CustomTypography text={NumericText?.toLocaleString("fa-IR") + "تومان"} variant="body1" textStyle={NumericTextStyle} />
+                        <CustomTypography text={NumericText?.toLocaleString("fa-IR")} variant="body1" textStyle={NumericTextStyle} />
                     </Box>)
             }
-        </CardContent>
+        </CardContent >
     )
 }
